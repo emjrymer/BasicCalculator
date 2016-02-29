@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <title>{% block title %}Welcome{% endblock %}</title>
+</head>
+<body>
+<div class="container">
+<div class="jumbotron">
+  <h1>Cool Math Stuff</h1>
+  <p>Try your numbers</p>
+    <ul>
+        <li>Enter some number</li>
+        <li>Pick your operator</li>
+        <li>Enter another number</li>
+        <li>Touch the red button</li>
+    </ul>
+</div>
+    <br>
+    <br>
+    <form class="form-inline" method="post">
+     {% csrf_token %}
+
+    <br><br><br>
+      <div class="form-group">
+        <label for="input_number_1">First Number</label>
+        <input type="text" class="form-control" id="input_number_1" name="input_number_1" placeholder="Enter a Number">
+      </div>
+    <select class="form-control" id="operator" name="operator">
+        <option>+</option>
+        <option>-</option>
+        <option>*</option>
+        <option>/</option>
+        <option>squared</option>
+    </select>
+
+      <div class="form-group">
+        <label for="input_number_2">Second Number</label>
+        <input type="text" class="form-control" id="input_number_2" name="input_number_2" placeholder="Enter a Number">
+      </div>
+      <input type="submit" class="btn btn-danger" value="Submit">
+    </form>
+<br><br><br>
+{% block content %}
+{% endblock %}
+
+</div>
+<script src="https://code.jquery.com/jquery-2.2.1.min.js" type="text/javascript" rel="script"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>
+</html>
